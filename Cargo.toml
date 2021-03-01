@@ -37,6 +37,10 @@ zeroize = { version = "1", default-features = false, features = ["zeroize_derive
 # Temporary workaround for https://github.com/myrrlyn/funty/issues/3
 funty = "=1.1.0"
 
+[dependencies.pasta_curves]
+git = "https://github.com/zcash/pasta_curves.git"
+rev = "b55a6960dfafd7f767e2820ddf1adaa499322f98"
+
 [dev-dependencies]
 bincode = "1"
 criterion = "0.3"
