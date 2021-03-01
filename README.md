@@ -24,7 +24,7 @@ use reddsa::*;
 let msg = b"Hello!";
 
 // Generate a secret key and sign the message
-let sk = SigningKey::<Binding>::new(thread_rng());
+let sk = SigningKey::<sapling::Binding>::new(thread_rng());
 let sig = sk.sign(thread_rng(), msg);
 
 // Types can be converted to raw byte arrays using From/Into
@@ -32,7 +32,7 @@ let sig_bytes: [u8; 64] = sig.into();
 let pk_bytes: [u8; 32] = VerificationKey::from(&sk).into();
 
 // Deserialize and verify the signature.
-let sig: Signature<Binding> = sig_bytes.into();
+let sig: Signature<sapling::Binding> = sig_bytes.into();
 assert!(
     VerificationKey::try_from(pk_bytes)
         .and_then(|pk| pk.verify(msg, &sig))
