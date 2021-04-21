@@ -14,14 +14,14 @@ use crate::{
 
 /// The byte-encoding of the basepoint for `OrchardSpendAuthSig`.
 const ORCHARD_SPENDAUTHSIG_BASEPOINT_BYTES: [u8; 32] = [
-    215, 148, 162, 4, 167, 65, 231, 17, 216, 7, 4, 206, 68, 161, 32, 20, 67, 192, 174, 143, 131,
-    35, 240, 117, 113, 113, 7, 198, 56, 190, 133, 53,
+    99, 201, 117, 184, 132, 114, 26, 141, 12, 161, 112, 123, 227, 12, 127, 12, 95, 68, 95, 62, 124,
+    24, 141, 59, 6, 214, 241, 40, 179, 35, 85, 183,
 ];
 
 /// The byte-encoding of the basepoint for `OrchardBindingSig`.
 const ORCHARD_BINDINGSIG_BASEPOINT_BYTES: [u8; 32] = [
-    141, 8, 74, 215, 47, 1, 216, 226, 55, 223, 198, 135, 103, 167, 75, 86, 218, 236, 107, 157, 212,
-    37, 162, 52, 232, 10, 187, 4, 223, 254, 222, 185,
+    145, 90, 60, 136, 104, 198, 195, 14, 47, 128, 144, 238, 69, 215, 110, 64, 72, 32, 141, 234, 91,
+    35, 102, 79, 187, 9, 164, 15, 85, 68, 244, 7,
 ];
 
 /// A type variable corresponding to Zcash's `OrchardSpendAuthSig`.
