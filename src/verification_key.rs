@@ -100,12 +100,13 @@ impl<T: SigType> TryFrom<VerificationKeyBytes<T>> for VerificationKey<T> {
         let maybe_point = T::Point::from_bytes(&repr);
         if maybe_point.is_some().into() {
             let point = maybe_point.unwrap();
-            // This checks that the verification key is not of small order.
-            if <bool>::from(point.is_small_order()) == false {
-                Ok(VerificationKey { point, bytes })
-            } else {
-                Err(Error::MalformedVerificationKey)
-            }
+            // Note that small-order verification keys (including the identity) are not
+            // rejected here. Previously they were rejected, but this was a bug as the
+            // RedDSA specification allows them. Zcash Sapling rejects small-order points
+            // for the RedJubjub spend authorization key rk; this now occurs separately.
+            // Meanwhile, Zcash Orchard uses a prime-order group, so the only small-order
+            // point would be the identity, which is allowed in Orchard.
+            Ok(VerificationKey { point, bytes })
         } else {
             Err(Error::MalformedVerificationKey)
         }
